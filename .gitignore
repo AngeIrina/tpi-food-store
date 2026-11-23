@@ -1,0 +1,23 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+*.db
+
+# Node
+node_modules/
+dist/
+*.log
+
+# Entorno
+.env
+.env.local
+
+# Editor / SO
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
