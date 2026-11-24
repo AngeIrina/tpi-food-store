@@ -46,7 +46,7 @@ python -m app.db.seed
 uvicorn app.main:app --reload
 ```
 
-El seed crea las tablas y carga usuarios, 4 categorías y 11 productos con stock. Se puede ejecutar varias veces sin duplicar datos.
+El seed crea las tablas y carga usuarios, 5 categorías y 19 productos con stock e imagen. Se puede ejecutar varias veces sin duplicar datos.
 
 - API: http://localhost:8000/api/v1
 - Documentación: http://localhost:8000/docs y http://localhost:8000/redoc

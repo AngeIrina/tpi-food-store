@@ -1,4 +1,4 @@
-# Pruebas de la API con REST Client (VS Code).
+# Pruebas de la API con REST Client.
 # Ejecutar en orden, con la base recién cargada con `python -m app.db.seed`.
 # REST Client guarda la cookie del login y la envía en las peticiones siguientes.
 
@@ -208,8 +208,8 @@ POST {{baseUrl}}/categorias
 Content-Type: application/json
 
 {
-  "nombre": "Empanadas",
-  "descripcion": "Al horno y fritas"
+  "nombre": "Postres",
+  "descripcion": "Dulces para cerrar la comida"
 }
 
 ### Crear categoría con nombre repetido -> 409
@@ -233,7 +233,7 @@ PUT {{baseUrl}}/categorias/{{categoria.response.body.$.id}}
 Content-Type: application/json
 
 {
-  "descripcion": "Empanadas caseras al horno"
+  "descripcion": "Postres caseros"
 }
 
 ### Actualizar categoría inexistente -> 404
@@ -250,10 +250,10 @@ POST {{baseUrl}}/productos
 Content-Type: application/json
 
 {
-  "nombre": "Empanada de carne",
-  "descripcion": "Carne cortada a cuchillo",
+  "nombre": "Flan casero",
+  "descripcion": "Con dulce de leche",
   "precio_base": 1800,
-  "imagen_url": "https://example.com/empanada.jpg",
+  "imagen_url": "https://example.com/flan.jpg",
   "stock": 48,
   "categoria_id": {{categoria.response.body.$.id}}
 }
@@ -379,8 +379,8 @@ POST {{baseUrl}}/productos
 Content-Type: application/json
 
 {
-  "nombre": "Empanada de pollo",
-  "precio_base": 1800,
+  "nombre": "Brownie de chocolate",
+  "precio_base": 2500,
   "categoria_id": {{categoria.response.body.$.id}}
 }
 

@@ -23,36 +23,185 @@ USUARIOS = [
 ]
 
 CATEGORIAS = {
-    "Hamburguesas": "Hamburguesas caseras con papas",
-    "Pizzas": "Pizzas a la piedra",
-    "Bebidas": "Gaseosas, aguas y jugos",
-    "Postres": "Dulces para cerrar la comida",
+    "Hamburguesas": "Hamburguesas artesanales con carne premium",
+    "Pizzas": "Pizzas al horno de barro",
+    "Empanadas": "Empanadas caseras horneadas",
+    "Bebidas": "Bebidas frías y calientes",
+    "Papas Fritas": "Acompañamientos crujientes",
 }
 
 PRODUCTOS = [
-    ("Hamburguesas", "Hamburguesa clásica", "Carne, lechuga, tomate y queso", 7500, 30),
-    (
-        "Hamburguesas",
-        "Hamburguesa doble cheddar",
-        "Doble carne y doble cheddar",
-        9800,
-        25,
-    ),
-    (
-        "Hamburguesas",
-        "Hamburguesa veggie",
-        "Medallón de lentejas y vegetales",
-        8200,
-        15,
-    ),
-    ("Pizzas", "Pizza muzzarella", "Salsa de tomate, muzzarella y orégano", 9000, 20),
-    ("Pizzas", "Pizza napolitana", "Muzzarella, tomate en rodajas y ajo", 10500, 20),
-    ("Pizzas", "Pizza fugazzeta", "Muzzarella y cebolla", 10000, 12),
-    ("Bebidas", "Coca-Cola 500 ml", "Gaseosa sabor cola", 2200, 60),
-    ("Bebidas", "Agua mineral 500 ml", "Agua sin gas", 1500, 60),
-    ("Bebidas", "Limonada 1 L", "Limonada casera con menta y jengibre", 3500, 15),
-    ("Postres", "Flan casero", "Con dulce de leche", 3800, 10),
-    ("Postres", "Brownie con helado", "Brownie tibio con helado de crema", 5200, 8),
+    {
+        "categoria": "Hamburguesas",
+        "nombre": "Hamburguesa Clásica",
+        "descripcion": "Carne 150g, lechuga, tomate, cebolla morada y mayonesa",
+        "precio_base": 4500,
+        "stock": 50,
+        "disponible": True,
+        "imagen_url": "/assets/productos/hamburguesa-clasica.jpg",
+    },
+    {
+        "categoria": "Hamburguesas",
+        "nombre": "Hamburguesa Doble",
+        "descripcion": "Doble carne 150g c/u, cheddar, panceta y salsa barbacoa",
+        "precio_base": 6200,
+        "stock": 40,
+        "disponible": True,
+        "imagen_url": "/assets/productos/hamburguesa-doble.jpg",
+    },
+    {
+        "categoria": "Hamburguesas",
+        "nombre": "Hamburguesa Completa",
+        "descripcion": "Carne 150g, huevo, jamón, queso, lechuga y tomate",
+        "precio_base": 5500,
+        "stock": 30,
+        "disponible": True,
+        "imagen_url": "/assets/productos/hamburguesa-completa.jpg",
+    },
+    {
+        "categoria": "Hamburguesas",
+        "nombre": "Hamburguesa Veggie",
+        "descripcion": "Medallón de lentejas y quinoa, rúcula, tomate confitado y hummus",
+        "precio_base": 5000,
+        "stock": 20,
+        "disponible": True,
+        "imagen_url": "/assets/productos/hamburguesa-veggie.jpg",
+    },
+    {
+        "categoria": "Pizzas",
+        "nombre": "Pizza Mozzarella",
+        "descripcion": "Mozzarella, salsa de tomate y orégano",
+        "precio_base": 3800,
+        "stock": 25,
+        "disponible": True,
+        "imagen_url": "/assets/productos/pizza-mozzarella.jpg",
+    },
+    {
+        "categoria": "Pizzas",
+        "nombre": "Pizza Napolitana",
+        "descripcion": "Mozzarella, rodajas de tomate, ajo, aceitunas y albahaca",
+        "precio_base": 4500,
+        "stock": 25,
+        "disponible": True,
+        "imagen_url": "/assets/productos/pizza-napolitana.jpg",
+    },
+    {
+        "categoria": "Pizzas",
+        "nombre": "Pizza Fugazzeta",
+        "descripcion": "Mozzarella, cebolla caramelizada, jamón y aceitunas",
+        "precio_base": 4800,
+        "stock": 20,
+        "disponible": True,
+        "imagen_url": "/assets/productos/pizza-fugazzeta.jpg",
+    },
+    {
+        "categoria": "Pizzas",
+        "nombre": "Pizza Especial",
+        "descripcion": "Mozzarella, pepperoni, morrón, cebolla, huevo y aceitunas",
+        "precio_base": 5200,
+        "stock": 15,
+        "disponible": True,
+        "imagen_url": "/assets/productos/pizza-especial.jpg",
+    },
+    {
+        "categoria": "Empanadas",
+        "nombre": "Empanada de Carne",
+        "descripcion": "Carne picada, cebolla, huevo duro, aceitunas y especias",
+        "precio_base": 1200,
+        "stock": 100,
+        "disponible": True,
+        "imagen_url": "/assets/productos/empanada-de-carne.jpg",
+    },
+    {
+        "categoria": "Empanadas",
+        "nombre": "Empanada de Pollo",
+        "descripcion": "Pollo desmenuzado, cebolla, morrón y crema",
+        "precio_base": 1200,
+        "stock": 80,
+        "disponible": True,
+        "imagen_url": "/assets/productos/empanada-de-pollo.jpg",
+    },
+    {
+        "categoria": "Empanadas",
+        "nombre": "Empanada Jamón y Queso",
+        "descripcion": "Jamón cocido y mozzarella",
+        "precio_base": 1100,
+        "stock": 90,
+        "disponible": False,
+        "imagen_url": "/assets/productos/empanada-jamon-y-queso.jpg",
+    },
+    {
+        "categoria": "Empanadas",
+        "nombre": "Empanada de Verdura",
+        "descripcion": "Espinaca, acelga, ricota y nuez moscada",
+        "precio_base": 1100,
+        "stock": 60,
+        "disponible": True,
+        "imagen_url": "/assets/productos/empanada-de-verdura.jpg",
+    },
+    {
+        "categoria": "Bebidas",
+        "nombre": "Coca-Cola 500ml",
+        "descripcion": "Gaseosa Coca-Cola original 500ml",
+        "precio_base": 1500,
+        "stock": 200,
+        "disponible": True,
+        "imagen_url": "/assets/productos/coca-cola-500ml.jpg",
+    },
+    {
+        "categoria": "Bebidas",
+        "nombre": "Sprite 500ml",
+        "descripcion": "Gaseosa Sprite 500ml",
+        "precio_base": 1500,
+        "stock": 180,
+        "disponible": True,
+        "imagen_url": "/assets/productos/sprite-500ml.jpg",
+    },
+    {
+        "categoria": "Bebidas",
+        "nombre": "Agua Mineral 500ml",
+        "descripcion": "Agua mineral sin gas 500ml",
+        "precio_base": 1000,
+        "stock": 300,
+        "disponible": True,
+        "imagen_url": "/assets/productos/agua-mineral-500ml.jpg",
+    },
+    {
+        "categoria": "Bebidas",
+        "nombre": "Cerveza Artesanal 473ml",
+        "descripcion": "Cerveza artesanal rubia 473ml",
+        "precio_base": 2500,
+        "stock": 100,
+        "disponible": True,
+        "imagen_url": "/assets/productos/cerveza-artesanal-473ml.jpg",
+    },
+    {
+        "categoria": "Papas Fritas",
+        "nombre": "Papas Fritas Clásicas",
+        "descripcion": "Papas fritas bastón crocantes con sal parrillera",
+        "precio_base": 2500,
+        "stock": 70,
+        "disponible": True,
+        "imagen_url": "/assets/productos/papas-fritas-clasicas.jpg",
+    },
+    {
+        "categoria": "Papas Fritas",
+        "nombre": "Papas con Cheddar y Panceta",
+        "descripcion": "Papas fritas bañadas en cheddar y panceta crocante",
+        "precio_base": 3500,
+        "stock": 50,
+        "disponible": True,
+        "imagen_url": "/assets/productos/papas-con-cheddar-y-panceta.jpg",
+    },
+    {
+        "categoria": "Papas Fritas",
+        "nombre": "Aros de Cebolla",
+        "descripcion": "Aros de cebolla empanizados, servidos con salsa barbacoa",
+        "precio_base": 2800,
+        "stock": 40,
+        "disponible": True,
+        "imagen_url": "/assets/productos/aros-de-cebolla.jpg",
+    },
 ]
 
 
@@ -87,22 +236,28 @@ def run() -> None:
                 session.flush()
             categorias[nombre] = categoria
 
-        for categoria, nombre, descripcion, precio, stock in PRODUCTOS:
-            existe = session.exec(
-                select(Producto).where(Producto.nombre == nombre)
+        for datos in PRODUCTOS:
+            producto = session.exec(
+                select(Producto).where(Producto.nombre == datos["nombre"])
             ).first()
-            if existe is None:
+            if producto is None:
                 session.add(
                     Producto(
-                        categoria_id=categorias[categoria].id,
-                        nombre=nombre,
-                        descripcion=descripcion,
-                        precio_base=precio,
-                        stock=stock,
+                        categoria_id=categorias[datos["categoria"]].id,
+                        nombre=datos["nombre"],
+                        descripcion=datos["descripcion"],
+                        precio_base=datos["precio_base"],
+                        stock=datos["stock"],
+                        disponible=datos["disponible"],
+                        imagen_url=datos["imagen_url"],
                     )
                 )
+            elif producto.imagen_url is None:
+                producto.imagen_url = datos["imagen_url"]
 
-    print("Seed cargado: usuarios admin y cliente, categorías y productos.")
+    print(
+        "Seed cargado: usuarios admin y cliente, categorías y productos con imágenes."
+    )
 
 
 if __name__ == "__main__":
