@@ -23,7 +23,7 @@ export function LoginPage() {
     onSubmit: async ({ value }) => {
       const logueado = await login(value.username.trim(), value.password)
       if (logueado) {
-        navigate(desde ?? (logueado.role === 'admin' ? '/admin' : '/'), { replace: true })
+        await navigate(desde ?? (logueado.role === 'admin' ? '/admin' : '/'), { replace: true })
       }
     },
   })
@@ -33,6 +33,7 @@ export function LoginPage() {
   return (
     <div className="mx-auto max-w-md">
       <Card>
+        <img src="/assets/logo.svg" alt="Food Store" className="mx-auto mb-4 h-32 w-auto" />
         <h1 className="mb-1 text-2xl font-bold">Iniciar sesión</h1>
         <p className="mb-6 text-sm text-stone-500">Ingresá con tu usuario para hacer pedidos.</p>
 

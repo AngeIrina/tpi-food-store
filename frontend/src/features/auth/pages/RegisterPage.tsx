@@ -22,7 +22,7 @@ const valoresIniciales: RegistroForm = {
   confirmar: '',
 }
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const EMAIL_REGEX = /^[^\s@]+@[^\s@.]+\.[^\s@]+$/
 
 export function RegisterPage() {
   const usuario = useAuthStore((s) => s.usuario)
@@ -33,7 +33,7 @@ export function RegisterPage() {
     mutationFn: (datos: RegistroPayload) => requestRegistro(datos),
     onSuccess: async (_usuario, datos) => {
       await login(datos.username, datos.password)
-      navigate('/', { replace: true })
+      await navigate('/', { replace: true })
     },
   })
 
@@ -50,6 +50,7 @@ export function RegisterPage() {
   return (
     <div className="mx-auto max-w-md">
       <Card>
+        <img src="/assets/logo.svg" alt="Food Store" className="mx-auto mb-4 h-32 w-auto" />
         <h1 className="mb-1 text-2xl font-bold">Crear cuenta</h1>
         <p className="mb-6 text-sm text-stone-500">Registrate para hacer tus pedidos.</p>
 
