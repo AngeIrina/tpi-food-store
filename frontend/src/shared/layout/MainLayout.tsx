@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom'
+import { Toaster } from '../ui/Toaster'
 import { Navbar } from './Navbar'
 
 export function MainLayout() {
@@ -8,6 +9,7 @@ export function MainLayout() {
       <main className="mx-auto max-w-6xl px-4 py-8">
         <Outlet />
       </main>
+      <Toaster />
     </div>
   )
 }

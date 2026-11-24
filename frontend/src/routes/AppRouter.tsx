@@ -15,19 +15,23 @@ import { EstadoVacio } from '../shared/components/EstadoVacio'
 import { AdminLayout } from '../shared/layout/AdminLayout'
 import { MainLayout } from '../shared/layout/MainLayout'
 import { ProtectedRoute } from './ProtectedRoute'
+import { SoloClientes } from './SoloClientes'
 
 export function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<CatalogoPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/carrito" element={<CarritoPage />} />
           <Route path="/unauthorized" element={<UnauthorizedPage />} />
 
-          <Route element={<ProtectedRoute />}>
+          <Route element={<SoloClientes />}>
+            <Route path="/" element={<CatalogoPage />} />
+            <Route path="/carrito" element={<CarritoPage />} />
+          </Route>
+
+          <Route element={<ProtectedRoute allowedRoles={['user']} />}>
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/mis-pedidos" element={<MisPedidosPage />} />
           </Route>
