@@ -7,6 +7,7 @@ import { Skeleton } from '../../../shared/components/Skeleton'
 import { useDebounce } from '../../../shared/hooks/useDebounce'
 import { Input, Select } from '../../../shared/ui/Input'
 import { useCartStore } from '../../../store/cartStore'
+import { useToastStore } from '../../../store/toastStore'
 import { useCategorias } from '../../categorias/hooks/useCategorias'
 import { ProductoCard } from '../components/ProductoCard'
 import { useProductos } from '../hooks/useProductos'
@@ -29,6 +30,7 @@ export function CatalogoPage() {
 
   const items = useCartStore((s) => s.items)
   const agregar = useCartStore((s) => s.agregar)
+  const mostrarAviso = useToastStore((s) => s.mostrar)
   const totalPaginas = data ? Math.ceil(data.total / POR_PAGINA) : 0
 
   let contenido
@@ -52,7 +54,10 @@ export function CatalogoPage() {
         key={producto.id}
         producto={producto}
         enCarrito={items.find((i) => i.producto_id === producto.id)?.cantidad ?? 0}
-        onAgregar={agregar}
+        onAgregar={(producto, cantidad) => {
+          agregar(producto, cantidad)
+          mostrarAviso(`${cantidad} × ${producto.nombre} agregado al carrito`)
+        }}
       />
     ))
   }

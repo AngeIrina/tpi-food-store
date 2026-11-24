@@ -43,28 +43,34 @@ export function PedidosTabla({ pedidos, procesandoId, onVer, onCambiarEstado }: 
       cell: ({ row }) => {
         const pedido = row.original
         const procesando = procesandoId === pedido.id
+        const siguiente = TRANSICIONES[pedido.estado].find((estado) => estado !== 'CANCELADO')
+        const cancelable = TRANSICIONES[pedido.estado].includes('CANCELADO')
         return (
-          <div className="flex flex-wrap gap-1">
-            <Button variante="fantasma" tamano="sm" onClick={() => onVer(pedido)}>
+          <div className="flex items-center gap-2">
+            <Button variante="secundario" tamano="sm" className="w-14" onClick={() => onVer(pedido)}>
               Ver
             </Button>
-            {TRANSICIONES[pedido.estado].map((destino) =>
-              destino === 'CANCELADO' ? (
-                <Button
-                  key={destino}
-                  variante="fantasma"
-                  tamano="sm"
-                  className="text-rose-700"
-                  disabled={procesando}
-                  onClick={() => onCambiarEstado(pedido, destino)}
-                >
-                  Cancelar
-                </Button>
-              ) : (
-                <Button key={destino} tamano="sm" disabled={procesando} onClick={() => onCambiarEstado(pedido, destino)}>
-                  {ETIQUETA_AVANCE[destino]}
-                </Button>
-              ),
+            {siguiente ? (
+              <Button
+                tamano="sm"
+                className="w-24"
+                disabled={procesando}
+                onClick={() => onCambiarEstado(pedido, siguiente)}
+              >
+                {ETIQUETA_AVANCE[siguiente]}
+              </Button>
+            ) : (
+              <span className="w-24" />
+            )}
+            {cancelable && (
+              <Button
+                variante="alerta"
+                tamano="sm"
+                disabled={procesando}
+                onClick={() => onCambiarEstado(pedido, 'CANCELADO')}
+              >
+                Cancelar
+              </Button>
             )}
           </div>
         )

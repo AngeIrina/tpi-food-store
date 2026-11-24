@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes } from 'react'
 
-type Variante = 'primario' | 'secundario' | 'peligro' | 'fantasma'
+type Variante = 'primario' | 'secundario' | 'peligro' | 'fantasma' | 'alerta'
 type Tamano = 'sm' | 'md'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,6 +13,7 @@ const VARIANTES: Record<Variante, string> = {
   secundario: 'bg-stone-200 text-stone-700 hover:bg-stone-300',
   peligro: 'bg-rose-700/75 text-white hover:bg-rose-700/85',
   fantasma: 'text-stone-600 hover:bg-stone-100',
+  alerta: 'text-rose-700 hover:bg-rose-50',
 }
 
 const TAMANOS: Record<Tamano, string> = {

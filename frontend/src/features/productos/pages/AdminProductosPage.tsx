@@ -67,9 +67,8 @@ export function AdminProductosPage() {
             Stock
           </Button>
           <Button
-            variante="fantasma"
+            variante="alerta"
             tamano="sm"
-            className="text-rose-700"
             onClick={() => abrir({ tipo: 'eliminar', producto: row.original })}
           >
             Eliminar

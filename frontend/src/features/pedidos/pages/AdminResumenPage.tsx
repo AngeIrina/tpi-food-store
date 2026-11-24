@@ -20,10 +20,10 @@ export function AdminResumenPage() {
     contenido = (
       <>
         <ResumenCard titulo="Pedidos de hoy" valor={data.pedidos_hoy} />
-        <ResumenCard titulo="Pendientes" valor={data.pendientes} color="text-amber-700" />
-        <ResumenCard titulo="En preparación" valor={data.en_preparacion} color="text-sky-700" />
-        <ResumenCard titulo="Entregados" valor={data.entregados} color="text-emerald-700" />
-        <ResumenCard titulo="Cancelados" valor={data.cancelados} color="text-rose-700" />
+        <ResumenCard titulo="Pendientes" valor={data.pendientes} />
+        <ResumenCard titulo="En preparación" valor={data.en_preparacion} />
+        <ResumenCard titulo="Entregados" valor={data.entregados} />
+        <ResumenCard titulo="Cancelados" valor={data.cancelados} />
         <ResumenCard titulo="Ingresos (entregados)" valor={formatearPrecio(data.ingresos_entregados)} />
       </>
     )

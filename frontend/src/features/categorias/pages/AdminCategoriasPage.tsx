@@ -43,9 +43,8 @@ export function AdminCategoriasPage() {
             Editar
           </Button>
           <Button
-            variante="fantasma"
+            variante="alerta"
             tamano="sm"
-            className="text-rose-700"
             onClick={() => abrir({ tipo: 'eliminar', categoria: row.original })}
           >
             Eliminar

@@ -28,7 +28,10 @@ export function CarritoPage() {
       <div className="flex flex-col gap-3">
         <h1 className="text-2xl font-bold">Tu carrito</h1>
         {items.map((item) => (
-          <Card key={item.producto_id} className="flex flex-wrap items-center justify-between gap-4">
+          <Card
+            key={item.producto_id}
+            className="grid grid-cols-[1fr_auto] items-center gap-4 sm:grid-cols-[1fr_auto_7rem_auto]"
+          >
             <div className="flex flex-col">
               <span className="font-semibold">{item.nombre}</span>
               <span className="text-sm text-stone-500">{formatearPrecio(item.precio_unitario)} c/u</span>
@@ -54,10 +57,10 @@ export function CarritoPage() {
                 +
               </Button>
             </div>
-            <span className="w-28 text-right font-semibold">
+            <span className="text-right font-semibold">
               {formatearPrecio(item.precio_unitario * item.cantidad)}
             </span>
-            <Button variante="fantasma" tamano="sm" className="text-rose-700" onClick={() => quitar(item.producto_id)}>
+            <Button variante="alerta" tamano="sm" onClick={() => quitar(item.producto_id)}>
               Quitar
             </Button>
           </Card>
@@ -70,7 +73,7 @@ export function CarritoPage() {
           <span>Total</span>
           <span>{formatearPrecio(total)}</span>
         </div>
-        <Button onClick={() => navigate('/checkout')}>Continuar con el pedido</Button>
+                <Button onClick={() => void navigate('/checkout')}>Continuar con el pedido</Button>
         <Button variante="secundario" onClick={vaciar}>
           Vaciar carrito
         </Button>

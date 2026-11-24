@@ -1,36 +1,40 @@
-import { Navigate, useNavigate } from 'react-router-dom'
-import { handleApiError } from '../../../shared/api/handleApiError'
-import { Card } from '../../../shared/ui/Card'
-import { formatearPrecio } from '../../../shared/utils/formato'
-import { useCartStore } from '../../../store/cartStore'
-import { CheckoutForm, type CheckoutValues } from '../components/CheckoutForm'
-import { useCrearPedido } from '../hooks/usePedidos'
+import { Navigate, useNavigate } from "react-router-dom";
+import { handleApiError } from "../../../shared/api/handleApiError";
+import { Card } from "../../../shared/ui/Card";
+import { formatearPrecio } from "../../../shared/utils/formato";
+import { useCartStore } from "../../../store/cartStore";
+import { CheckoutForm, type CheckoutValues } from "../components/CheckoutForm";
+import { useCrearPedido } from "../hooks/usePedidos";
 
 export function CheckoutPage() {
-  const items = useCartStore((s) => s.items)
-  const total = useCartStore((s) => s.total())
-  const vaciar = useCartStore((s) => s.vaciar)
-  const crearPedido = useCrearPedido()
-  const navigate = useNavigate()
+  const items = useCartStore((s) => s.items);
+  const total = useCartStore((s) => s.total());
+  const vaciar = useCartStore((s) => s.vaciar);
+  const crearPedido = useCrearPedido();
+  const navigate = useNavigate();
 
-  if (items.length === 0 && !crearPedido.isSuccess) return <Navigate to="/carrito" replace />
+  if (items.length === 0 && !crearPedido.isSuccess)
+    return <Navigate to="/carrito" replace />;
 
   const confirmar = (datos: CheckoutValues) => {
     crearPedido.mutate(
       {
-        items: items.map((i) => ({ producto_id: i.producto_id, cantidad: i.cantidad })),
+        items: items.map((i) => ({
+          producto_id: i.producto_id,
+          cantidad: i.cantidad,
+        })),
         forma_pago: datos.forma_pago,
         direccion_entrega: datos.direccion_entrega.trim(),
         notas: datos.notas.trim() || null,
       },
       {
         onSuccess: () => {
-          vaciar()
-          navigate('/mis-pedidos', { replace: true })
+          vaciar();
+          void navigate("/mis-pedidos", { replace: true });
         },
       },
-    )
-  }
+    );
+  };
 
   return (
     <section className="grid gap-6 lg:grid-cols-[1fr_340px]">
@@ -59,5 +63,5 @@ export function CheckoutPage() {
         </div>
       </Card>
     </section>
-  )
+  );
 }

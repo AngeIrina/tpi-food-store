@@ -105,7 +105,8 @@ export function ProductoForm({
                 type="number"
                 min={0}
                 step="0.01"
-                value={field.state.value}
+                placeholder="0"
+                value={field.state.value || ''}
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(Number(e.target.value))}
               />
@@ -126,7 +127,8 @@ export function ProductoForm({
                 type="number"
                 min={0}
                 step={1}
-                value={field.state.value}
+                placeholder="0"
+                value={field.state.value || ''}
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(Number(e.target.value))}
               />

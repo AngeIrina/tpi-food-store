@@ -12,7 +12,7 @@ export interface ItemCarrito {
 
 interface CartState {
   items: ItemCarrito[]
-  agregar: (producto: Producto) => void
+  agregar: (producto: Producto, cantidad?: number) => void
   quitar: (productoId: number) => void
   cambiarCantidad: (productoId: number, cantidad: number) => void
   vaciar: () => void
@@ -25,10 +25,10 @@ export const useCartStore = create<CartState>()(
     (set, get) => ({
       items: [],
 
-      agregar: (producto) => {
+      agregar: (producto, cantidad = 1) => {
         const existente = get().items.find((i) => i.producto_id === producto.id)
         if (existente) {
-          get().cambiarCantidad(producto.id, existente.cantidad + 1)
+          get().cambiarCantidad(producto.id, existente.cantidad + cantidad)
           return
         }
         set({
@@ -38,7 +38,7 @@ export const useCartStore = create<CartState>()(
               producto_id: producto.id,
               nombre: producto.nombre,
               precio_unitario: producto.precio_base,
-              cantidad: 1,
+              cantidad: Math.min(Math.max(1, cantidad), producto.stock),
               stock: producto.stock,
             },
           ],

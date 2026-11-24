@@ -6,7 +6,7 @@ interface ResumenCardProps {
   color?: string
 }
 
-export function ResumenCard({ titulo, valor, color = 'text-stone-900' }: Readonly<ResumenCardProps>) {
+export function ResumenCard({ titulo, valor, color = 'text-orange-700' }: Readonly<ResumenCardProps>) {
   return (
     <Card className="flex flex-col gap-1">
       <span className="text-sm text-stone-500">{titulo}</span>
