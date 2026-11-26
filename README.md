@@ -5,7 +5,7 @@ Trabajo Práctico Integrador de Programación IV (TUPaD - UTN).
 Food Store es una aplicación web para un negocio de comidas. Los clientes se registran, recorren el catálogo, arman un carrito y confirman pedidos con dirección y forma de pago. El administrador gestiona categorías, productos, stock, pedidos y usuarios desde un panel.
 
 - **Repositorio:** https://github.com/AngeIrina/tpi-food-store
-- **Video:** 
+- **Video:** https://youtu.be/gXRO2buxC64
 
 ## Tecnologías
 
